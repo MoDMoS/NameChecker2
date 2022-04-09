@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Name Checker</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="fullname">Fullname</string>
+    <string name="email">Email</string>
+    <string name="loginhere">Aiready hove an account? Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="user_id">Student id/Teacher id</string>
+</resources>
