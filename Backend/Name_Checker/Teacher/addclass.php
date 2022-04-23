@@ -17,26 +17,45 @@
     $row = mysqli_fetch_array($sql2);
 
     if($row){
-        $sql3 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass')";
-        if(!$conn->query($sql3)){
-            echo "failure";
+        $checkId = mysqli_query($conn,"SELECT Subject, Id FROM subject WHERE Subject = '$subject' AND Id = '$id'");
+        $rowId = mysqli_fetch_array($checkId);
+        if($rowId){
+            $checkSec = mysqli_query($conn,"SELECT Subject, Sec FROM section WHERE Subject = '$subject' AND Sec = '$sec'");
+            $rowSec = mysqli_fetch_array($checkSec);
+            if($rowSec){
+                echo "failure";
+            }else{
+                $sql3 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass', ' ')";
+                if(!$conn->query($sql3)){
+                    echo "failure";
+                }else{
+                    echo "success";   
+                }
+            }
         }else{
-            echo "success";   
+            echo "failure";
         }
     }else{
-        $sql4 = "INSERT INTO subject VALUES('$subject', '$id')";
-        if(!$conn->query($sql4)){
-            echo "failure1";
+        $checkId2 = mysqli_query($conn,"SELECT Id FROM subject WHERE Id = '$id'");
+        $rowId2 = mysqli_fetch_array($checkId2);
+        if($rowId2){
+            echo "failure";
         }else{
-            $sql5 = mysqli_query($conn,"SELECT Sec FROM section WHERE Subject = '$subject' AND Sec = '$sec'");
-            $result = mysqli_fetch_array($sql5);
-            if($result){
-                echo "failure2";  
+            $sql4 = "INSERT INTO subject VALUES('$subject', '$id')";
+            if(!$conn->query($sql4)){
+                echo "failure1";
             }else{
-                $sql6 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass')";
-                mysqli_query($conn,$sql6);
-                echo "success";
+                $sql5 = mysqli_query($conn,"SELECT Sec FROM section WHERE Subject = '$subject' AND Sec = '$sec'");
+                $result = mysqli_fetch_array($sql5);
+                if($result){
+                    echo "failure2";  
+                }else{
+                    $sql6 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass', ' ')";
+                    mysqli_query($conn,$sql6);
+                    echo "success";
+                }
             }
         }
+        
     }
 ?>

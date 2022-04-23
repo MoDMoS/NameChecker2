@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Teacher_student_list">
+    tools:context=".ui.Teacher.Teacher_student_list">
 
     <TextView
         android:id="@+id/classname2"

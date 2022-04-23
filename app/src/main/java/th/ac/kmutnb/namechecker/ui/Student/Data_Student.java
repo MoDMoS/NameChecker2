@@ -1,4 +1,4 @@
-package th.ac.kmutnb.namechecker;
+package th.ac.kmutnb.namechecker.ui.Student;
 
 public class Data_Student {
     private String Subject;

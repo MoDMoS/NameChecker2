@@ -29,7 +29,6 @@ import java.util.Random;
 
 import th.ac.kmutnb.namechecker.Nav_Menu;
 import th.ac.kmutnb.namechecker.R;
-import th.ac.kmutnb.namechecker.Teacher_main;
 
 public class Addclass_Teacher extends Fragment {
 

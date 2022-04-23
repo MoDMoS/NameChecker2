@@ -1,6 +1,5 @@
-package th.ac.kmutnb.namechecker;
+package th.ac.kmutnb.namechecker.ui.Teacher;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +10,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import th.ac.kmutnb.namechecker.R;
 
 public class Teacher_class_info extends AppCompatActivity {
 

@@ -44,69 +44,45 @@
             android:theme="@style/Theme.NameChecker.NoActionBar" />
         <!-- Student -->
         <activity
-            android:name=".Student_main"
-            android:exported="false"
-            android:label="Main" />
-        <activity
-            android:name=".Addclass_Student"
-            android:exported="false"
-            android:label="Add Class">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Student_main" />
-        </activity>
-        <activity
-            android:name=".Student_class_info"
+            android:name=".ui.Student.Student_class_info"
             android:exported="false"
             android:label="Class Detail">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Student_main" />
+                android:value=".Nav_Menu2" />
         </activity>
         <activity
-            android:name=".Checkname"
+            android:name=".ui.Student.Checkname"
             android:exported="false"
             android:label="Cheackname">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Student_class_info" />
+                android:value=".ui.Student.Student_class_info" />
         </activity>
         <!-- Teacher -->
         <activity
-            android:name=".Teacher_main"
-            android:exported="false"
-            android:label="Main" />
-        <activity
-            android:name=".Addclass_Teacher"
-            android:exported="false"
-            android:label="Add class">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Teacher_main" />
-        </activity>
-        <activity
-            android:name=".Teacher_class_info"
+            android:name=".ui.Teacher.Teacher_class_info"
             android:exported="false"
             android:label="Class Detail">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Teacher_main" />
+                android:value=".Nav_Menu" />
         </activity>
         <activity
-            android:name=".Generate_Pass"
+            android:name=".ui.Teacher.Generate_Pass"
             android:exported="false"
             android:label="Genarate password">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Teacher_class_info" />
+                android:value=".ui.Teacher.Teacher_class_info" />
         </activity>
         <activity
-            android:name=".Teacher_student_list"
+            android:name=".ui.Teacher.Teacher_student_list"
             android:exported="false"
             android:label="Student list">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Teacher_class_info" />
+                android:value=".ui.Teacher.Teacher_class_info" />
         </activity>
     </application>
 

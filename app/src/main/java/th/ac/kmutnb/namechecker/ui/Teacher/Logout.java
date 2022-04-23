@@ -15,9 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import th.ac.kmutnb.namechecker.Generate_Pass;
 import th.ac.kmutnb.namechecker.MainActivity;
-import th.ac.kmutnb.namechecker.Nav_Menu;
 import th.ac.kmutnb.namechecker.R;
 
 public class Logout extends Fragment {

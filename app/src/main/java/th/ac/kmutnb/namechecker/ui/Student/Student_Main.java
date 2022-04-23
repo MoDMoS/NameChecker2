@@ -30,10 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import th.ac.kmutnb.namechecker.Data_Student;
-import th.ac.kmutnb.namechecker.MyAdapter_Student;
 import th.ac.kmutnb.namechecker.R;
-import th.ac.kmutnb.namechecker.Student_class_info;
 
 public class Student_Main extends Fragment {
 

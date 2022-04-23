@@ -12,9 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,7 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -32,12 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import th.ac.kmutnb.namechecker.Data_Teacher;
-import th.ac.kmutnb.namechecker.MyAdapter_Teacher;
-import th.ac.kmutnb.namechecker.Nav_Menu;
 import th.ac.kmutnb.namechecker.R;
-import th.ac.kmutnb.namechecker.Teacher_class_info;
-import th.ac.kmutnb.namechecker.databinding.ActivityMenuBinding;
 
 public class Teacher_main extends Fragment {
 

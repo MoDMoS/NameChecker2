@@ -24,5 +24,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     } else{
         echo "failure";
     }
+}else{
+    echo "error";
 }
 ?>

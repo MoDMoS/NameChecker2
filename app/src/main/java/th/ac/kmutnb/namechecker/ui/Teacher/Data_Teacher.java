@@ -1,4 +1,4 @@
-package th.ac.kmutnb.namechecker;
+package th.ac.kmutnb.namechecker.ui.Teacher;
 
 public class Data_Teacher {
 

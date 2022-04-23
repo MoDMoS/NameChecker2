@@ -1,4 +1,4 @@
-package th.ac.kmutnb.namechecker;
+package th.ac.kmutnb.namechecker.ui.Teacher;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+
+import th.ac.kmutnb.namechecker.R;
+import th.ac.kmutnb.namechecker.ui.Teacher.Data_T_Student_list;
 
 public class MyAdapter_T_Student_list extends BaseAdapter {
     private List<Data_T_Student_list> mDatas;

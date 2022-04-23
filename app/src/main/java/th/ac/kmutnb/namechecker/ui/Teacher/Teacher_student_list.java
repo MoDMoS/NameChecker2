@@ -1,15 +1,11 @@
-package th.ac.kmutnb.namechecker;
+package th.ac.kmutnb.namechecker.ui.Teacher;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,6 +23,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import th.ac.kmutnb.namechecker.R;
+import th.ac.kmutnb.namechecker.ui.Teacher.Data_T_Student_list;
+import th.ac.kmutnb.namechecker.ui.Teacher.MyAdapter_T_Student_list;
 
 public class Teacher_student_list extends AppCompatActivity {
 
