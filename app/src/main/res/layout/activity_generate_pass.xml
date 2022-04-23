@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mint"
     tools:context=".ui.Teacher.Generate_Pass">
 
     <TextView
@@ -29,11 +30,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/button"
         android:onClick="closepass"
         android:text="ปิดรหัส"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,11 +45,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.322" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
         android:layout_marginStart="50dp"
+        android:background="@drawable/button"
         android:onClick="generate"
         android:text="สร้างรหัส"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,8 +58,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.322"
-        app:strokeColor="#FF0000" />
+        app:layout_constraintVertical_bias="0.322" />
 
     <TextView
         android:id="@+id/classpass"
