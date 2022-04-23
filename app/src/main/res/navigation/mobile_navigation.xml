@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_teacher_main">
+
+    <fragment
+        android:id="@+id/nav_teacher_main"
+        android:name="th.ac.kmutnb.namechecker.ui.Teacher.Teacher_main"
+        android:label="Main"
+        tools:layout="@layout/fragment_teacher_main" />
+
+    <fragment
+        android:id="@+id/nav_addclass_Teacher"
+        android:name="th.ac.kmutnb.namechecker.ui.Teacher.Addclass_Teacher"
+        android:label="Add class"
+        tools:layout="@layout/fragment_addclass_teacher" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="th.ac.kmutnb.namechecker.ui.Teacher.Logout"
+        android:label="logout"
+        tools:layout="@layout/fragment_logout" />
+
+    <fragment
+        android:id="@+id/nav_student_main"
+        android:name="th.ac.kmutnb.namechecker.ui.Student.Student_Main"
+        android:label="Main"
+        tools:layout="@layout/fragment_student_main" />
+</navigation>
