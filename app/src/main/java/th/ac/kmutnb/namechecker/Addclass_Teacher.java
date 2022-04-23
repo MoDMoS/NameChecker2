@@ -1,5 +1,6 @@
 package th.ac.kmutnb.namechecker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -7,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +32,7 @@ public class Addclass_Teacher extends AppCompatActivity {
 
     private EditText etSubject, etId, etSec, etTime;
     private Button btn_AddT;
-    private String URL = "http://192.168.1.40/Name_Checker/Teacher/addclass.php";
+    private String URL = "http://192.168.1.41/Name_Checker/Teacher/addclass.php";
     private String subject, id, sec, time, username;
     private String randomstring = "";
     String TAG = "myapp";
@@ -74,19 +77,20 @@ public class Addclass_Teacher extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     if(response.equals("success")){
+                        Log.i(TAG,"success");
                         Log.i(TAG,response);
                         Intent intent = new Intent(Addclass_Teacher.this,Teacher_main.class);
                         intent.putExtra("name",username);
                         startActivity(intent);
                         finish();
                     } else if(response.equals("failure")){
-                        Log.i(TAG,response);
+                        Log.i(TAG,"failure");
 //                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
                     }else if(response.equals("failure1")){
-                        Log.i(TAG,response);
+                        Log.i(TAG,"failure1");
 //                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
                     }else if(response.equals("failure2")){
-                        Log.i(TAG,response);
+                        Log.i(TAG,"failure2");
 //                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
                     }
                 }

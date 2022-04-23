@@ -6,6 +6,7 @@ public class Data_Teacher {
     private String Sec;
     private String Time;
     private String Pass;
+    private String Check_In;
 
 //    public Data_Teacher(String mText1, String mText2, String mText3, String mText4) {
 //        this.mText1 = mText1;
@@ -26,8 +27,11 @@ public class Data_Teacher {
         return Time;
     }
 
-
     public String getPass() {
         return Pass;
+    }
+
+    public String getCheck_in() {
+        return Check_In;
     }
 }

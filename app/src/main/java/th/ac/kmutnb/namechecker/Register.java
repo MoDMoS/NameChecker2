@@ -28,7 +28,7 @@ public class Register extends AppCompatActivity {
     private EditText etName, etUser, etId, etPassword, etReenterPassword;
     private TextView tvStatus;
     private Button btnRegister;
-    private String URL = "http://192.168.1.40/Name_Checker/login/register.php";
+    private String URL = "http://192.168.1.41/Name_Checker/login/register.php";
     private String id, name, username, password, reenterPassword, role;
     private RadioGroup radioGroup;
     String TAG = "myapp";
@@ -40,7 +40,7 @@ public class Register extends AppCompatActivity {
         etName = findViewById(R.id.etName);
         etUser = findViewById(R.id.etUser);
         etId = findViewById(R.id.etId);
-        etPassword = findViewById(R.id.etPassword);
+        etPassword = findViewById(R.id.Password);
         etReenterPassword = findViewById(R.id.etReenterPassword);
         tvStatus = findViewById(R.id.tvStatus);
         btnRegister = findViewById(R.id.btnRegister);

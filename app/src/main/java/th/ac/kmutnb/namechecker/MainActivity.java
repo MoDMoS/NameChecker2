@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     String TAG = "myapp";
     private EditText etUsername, etPassword;
-    private String username, password;
-    private String URL = "http://192.168.1.40/Name_Checker/login/login.php";
+    private String username, password, role;
+    private String URL = "http://192.168.1.41/Name_Checker/login/login.php";
+    SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
         username = password = "";
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
+
+        pref = getSharedPreferences("MyPreRef", Context.MODE_PRIVATE);
+        username = pref.getString("username", "");
+        role = pref.getString("role", "");
+        if(role.equals("Student")){
+            Intent intent = new Intent(MainActivity.this, Nav_Menu2.class);
+            startActivity(intent);
+            finish();
+        }else if(role.equals("Teacher")){
+            Intent intent = new Intent(MainActivity.this, Nav_Menu.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void Login(View view) {
@@ -49,10 +63,14 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(String response) {
                     Log.d(TAG, response);
                     if (response.equals("Student")) {
-                        Intent intent = new Intent(MainActivity.this, Student_main.class);
+                        SharedPreferences pref = getSharedPreferences("MyPreRef", MODE_PRIVATE);
+                        SharedPreferences.Editor editor =  pref.edit();
 
-                        intent.putExtra("name",username);
+                        editor.putString("username",username);
+                        editor.putString("role",response);
+                        editor.commit();
 
+                        Intent intent = new Intent(MainActivity.this, Nav_Menu2.class);
                         startActivity(intent);
                         finish();
                     } else if (response.equals("Teacher")) {
@@ -60,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor =  pref.edit();
 
                         editor.putString("username",username);
+                        editor.putString("role",response);
                         editor.commit();
 
-                        Intent intent = new Intent(MainActivity.this, Teacher_main.class);
-                        //intent.putExtra("name",username);
+                        Intent intent = new Intent(MainActivity.this, Nav_Menu.class);
                         startActivity(intent);
                         finish();
                     }  else if (response.equals("failure")) {

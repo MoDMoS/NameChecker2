@@ -1,13 +1,16 @@
 package th.ac.kmutnb.namechecker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -33,7 +36,7 @@ public class Teacher_main extends AppCompatActivity implements AdapterView.OnIte
     MyAdapter_Teacher adapter;
     String TAG = "myapp";
     private List<Data_Teacher> datas;
-    private String URL = "http://192.168.1.40/Name_Checker/Teacher/class_list.php";
+    private String URL;
     private String username;
     SharedPreferences pref;
 
@@ -43,11 +46,16 @@ public class Teacher_main extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_teacher_main);
 
         datas = new ArrayList<>();
-
         pref = getSharedPreferences("MyPreRef", Context.MODE_PRIVATE);
         username = pref.getString("username", "not found");
+        Log.i(TAG, username);
+        URL = "http://192.168.1.41/Name_Checker/Teacher/class_list.php?username=" + username;
 
-        JsonArrayRequest jsRequest = new JsonArrayRequest(Request.Method.POST, URL, null,
+        SharedPreferences.Editor editor =  pref.edit();
+        editor.remove("check_in");
+        editor.commit();
+
+        JsonArrayRequest jsRequest = new JsonArrayRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -85,39 +93,33 @@ public class Teacher_main extends AppCompatActivity implements AdapterView.OnIte
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsRequest);
+
     }
 
     public void displayListview(){
         Log.i(TAG,"display");
         Log.i(TAG, String.valueOf(datas));
         adapter = new MyAdapter_Teacher(Teacher_main.this,datas);
-        ListView lv = findViewById(R.id.listview_T);
+        ListView lv = findViewById(R.id.listview_S);
         lv.setOnItemClickListener(this);
         lv.setAdapter(adapter);
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        SharedPreferences.Editor editor =  pref.edit();
+        editor.putString("subject",datas.get(i).getSubject());
+        editor.putString("sec",datas.get(i).getSec());
+        editor.putString("time",datas.get(i).getTime());
+        editor.putString("check_in",datas.get(i).getCheck_in());
+        editor.commit();
+
         Intent itn = new Intent(this,Teacher_class_info.class);
-        itn.putExtra("subject",datas.get(i).getSubject());
-        itn.putExtra("sec",datas.get(i).getSec());
-        itn.putExtra("time",datas.get(i).getTime());
         startActivity(itn);
     }
 
     public void btn_add(View view){
-//        Intent getitn = getIntent();
-//        String name = getitn.getStringExtra("name");
-
         Intent intent = new Intent(this, Addclass_Teacher.class);
-        //intent.putExtra("name",name);
         startActivity(intent);
-    }
-
-    public void clear(View view){
-        SharedPreferences.Editor editor =  pref.edit();
-        editor.clear();
-        editor.commit();
-        Log.i(TAG,"clear");
     }
 }

@@ -23,7 +23,8 @@ public class MyAdapter_Teacher extends BaseAdapter {
         TextView subject;
         TextView section;
         TextView time;
-        TextView code;
+        TextView pass;
+        TextView check_in;
     }
 
     @Override
@@ -49,16 +50,17 @@ public class MyAdapter_Teacher extends BaseAdapter {
             holder.subject = (TextView)view.findViewById(R.id.row1);
             holder.section = (TextView)view.findViewById(R.id.row2);
             holder.time = (TextView)view.findViewById(R.id.row3);
-            holder.code = (TextView)view.findViewById(R.id.row4);
+            holder.pass = (TextView)view.findViewById(R.id.row4);
+            holder.check_in = (TextView)view.findViewById(R.id.row5);
             view.setTag(holder);
         } else {
             holder = (ViewHolder)view.getTag();
         }
-        String subject = mDatas.get(position).getSubject();
-        holder.subject.setText(subject);
+        holder.subject.setText(mDatas.get(position).getSubject());
         holder.section.setText(mDatas.get(position).getSec());
         holder.time.setText(mDatas.get(position).getTime());
-        holder.code.setText(mDatas.get(position).getPass());
+        holder.pass.setText(mDatas.get(position).getPass());
+        holder.check_in.setText(mDatas.get(position).getCheck_in());
 
         return view;
     }
