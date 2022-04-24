@@ -14,6 +14,7 @@
         $sql2 = mysqli_query($conn, "UPDATE section SET Check_In= ' ' WHERE Subject='$subject' AND Sec='$sec'");
         echo "success";
     }else if($check == "delete"){
+        $del = mysqli_query($conn, "DELETE FROM student_list WHERE Subject = '$subject' AND Sec = '$sec'");
         $sql3 = mysqli_query($conn, "DELETE FROM section WHERE Subject='$subject' AND Sec='$sec' ");
         echo "success";
     }else{
