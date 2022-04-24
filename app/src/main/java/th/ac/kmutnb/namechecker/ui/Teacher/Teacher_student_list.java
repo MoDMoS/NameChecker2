@@ -1,8 +1,11 @@
 package th.ac.kmutnb.namechecker.ui.Teacher;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,8 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import th.ac.kmutnb.namechecker.R;
-import th.ac.kmutnb.namechecker.ui.Teacher.Data_T_Student_list;
-import th.ac.kmutnb.namechecker.ui.Teacher.MyAdapter_T_Student_list;
 
 public class Teacher_student_list extends AppCompatActivity {
 
@@ -47,33 +48,48 @@ public class Teacher_student_list extends AppCompatActivity {
         pref = getSharedPreferences("MyPreRef", Context.MODE_PRIVATE);
         subject = pref.getString("subject", "Not found");
         sec = pref.getString("sec", "Not found");
-        URL = "http://192.168.1.41/Name_Checker/Teacher/student_list.php?"+"subject="+subject+"&sec="+sec;
+        URL = "http://192.168.1.41/Name_Checker/Teacher/student_list.php?subject="+subject+"&sec="+sec;
 
         JsonArrayRequest jsRequest = new JsonArrayRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.i(TAG, String.valueOf(response));
-                        Gson gson = new Gson();
+                        if(response.equals(null)){
+                            Log.i(TAG, String.valueOf(response));
+                            Gson gson = new Gson();
 
-                        JSONObject jsObj;   // = null;
-                        for (int i=0; i < response.length(); i++ ) {
-                            try {
-                                jsObj = response.getJSONObject(i);
-                                String title = jsObj.getString("Name");
-                                Log.d(TAG, title);
+                            JSONObject jsObj;   // = null;
+                            for (int i=0; i < response.length(); i++ ) {
+                                try {
+                                    jsObj = response.getJSONObject(i);
+                                    String title = jsObj.getString("Name");
+                                    Log.d(TAG, title);
 
-                                Data_T_Student_list dataitem = gson.fromJson(String.valueOf(jsObj), Data_T_Student_list.class);
-                                datas.add(dataitem);
-                                Log.d(TAG,"gson "+ dataitem.getName());
-                                Log.i(TAG, String.valueOf(datas.size()));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                                    Data_T_Student_list dataitem = gson.fromJson(String.valueOf(jsObj), Data_T_Student_list.class);
+                                    datas.add(dataitem);
+                                    Log.d(TAG,"gson "+ dataitem.getName());
+                                    Log.i(TAG, String.valueOf(datas.size()));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                        }
 
-                        if (datas.size() > -1) {
-                            displayListview();
+                            if (datas.size() > -1) {
+                                displayListview();
+                            }
+                        }else{
+                            AlertDialog.Builder alert = new AlertDialog.Builder(Teacher_student_list.this);
+                            alert.setTitle("รายชื่อนักศึกษา");
+                            alert.setMessage("ไม่มีนักศึกษาในวิชานี้");
+                            alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(Teacher_student_list.this, Teacher_class_info.class);
+                                    startActivity(intent);
+                                }
+                            });
+                            alert.create();
+                            alert.show();
                         }
                     }
                 },
@@ -93,7 +109,7 @@ public class Teacher_student_list extends AppCompatActivity {
         Log.i(TAG,"display");
         Log.i(TAG, String.valueOf(datas));
         adapter = new MyAdapter_T_Student_list(this,datas);
-        ListView lv = findViewById(R.id.listview_S);
+        ListView lv = findViewById(R.id.listview_T);
 //        lv.setOnItemClickListener(this);
         lv.setAdapter(adapter);
     }

@@ -11,77 +11,99 @@
         android:id="@+id/addclass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
         android:text="เพิ่มห้องเรียน"
+        android:textColor="#000000"
         android:textSize="30dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/kanit_semibold"
         android:text="ชื่อวิชา"
-        android:textSize="20dp" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/etSubject"
         android:layout_width="379dp"
         android:layout_height="45dp"
-        android:ems="10"
-        android:hint="ชื่อวิชา"
         android:background="@drawable/border_edittext"
+        android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
+        android:hint="ชื่อวิชา"
+        android:inputType="textPersonName"
         android:padding="10dp"
-        android:inputType="textPersonName" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
         android:text="รหัสวิชา"
-        android:textSize="20dp" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/etSubject_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="รหัสวิชา"
         android:background="@drawable/border_edittext"
+        android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
+        android:hint="รหัสวิชา"
+        android:inputType="textPersonName"
         android:padding="10dp"
-        android:inputType="textPersonName" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
         android:text="ตอนเรียน"
-        android:textSize="20dp" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/etSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="ตอนเรียน"
         android:background="@drawable/border_edittext"
+        android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
+        android:hint="ตอนเรียน"
+        android:inputType="textPersonName"
         android:padding="10dp"
-        android:inputType="textPersonName" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/TextView99"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
         android:text="เวลา"
-        android:textSize="20dp" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/etTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="เวลา"
         android:background="@drawable/border_edittext"
+        android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
+        android:hint="เวลา"
+        android:inputType="textPersonName|time"
         android:padding="10dp"
-        android:inputType="textPersonName|time" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/txtShow"
@@ -94,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/button"
+        android:fontFamily="@font/kanit_semibold"
         android:text="สร้าง"
         android:textSize="20dp"
         android:textStyle="bold" />

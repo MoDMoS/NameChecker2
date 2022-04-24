@@ -109,7 +109,7 @@ public class Student_Main extends Fragment {
         Log.i(TAG,"display");
         Log.i(TAG, String.valueOf(datas));
         adapter = new MyAdapter_Student(getActivity(),datas);
-        ListView lv = getActivity().findViewById(R.id.listview_S);
+        ListView lv = getActivity().findViewById(R.id.listview_T);
         lv.setOnItemClickListener(this::onItemClick);
         lv.setAdapter(adapter);
     }

@@ -1,10 +1,12 @@
 package th.ac.kmutnb.namechecker.ui.Teacher;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -29,6 +31,7 @@ import java.util.Random;
 
 import th.ac.kmutnb.namechecker.Nav_Menu;
 import th.ac.kmutnb.namechecker.R;
+import th.ac.kmutnb.namechecker.ui.Student.Checkname;
 
 public class Addclass_Teacher extends Fragment {
 
@@ -86,19 +89,49 @@ public class Addclass_Teacher extends Fragment {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            Log.i(TAG, response);
                             if(response.equals("success")){
                                 Log.i(TAG,"success");
                                 Log.i(TAG,response);
+                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                                alert.setTitle("เสร็จสิ้น");
+                                alert.setMessage("เพิ่มตอนเรียนเรียบร้อย");
+                                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent intent = new Intent(getActivity(), Nav_Menu.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                                alert.create();
+                                alert.show();
                                 Intent intent = new Intent(getActivity(), Nav_Menu.class);
-
                                 startActivity(intent);
                                 getActivity().finish();
-                            } else if(response.equals("failure")){
-                                Log.i(TAG,"failure");
-//                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
-                            }else if(response.equals("failure1")){
-                                Log.i(TAG,"failure1");
-//                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
+                            } else if(response.equals("failureSec")){
+                                Log.i(TAG,"failureSec");
+                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                                alert.setTitle("ผิดพลาด");
+                                alert.setMessage("ตอนเรียนนี้มีอยู่แล้ว");
+                                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                    }
+                                });
+                                alert.create();
+                                alert.show();
+                            }else if(response.equals("failureId")){
+                                Log.i(TAG,"failureId");
+                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                                alert.setTitle("ผิดพลาด");
+                                alert.setMessage("รหัสวิชานี้ถูกใช้ไปแล้ว");
+                                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                    }
+                                });
+                                alert.create();
+                                alert.show();
                             }else if(response.equals("failure2")){
                                 Log.i(TAG,"failure2");
 //                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();

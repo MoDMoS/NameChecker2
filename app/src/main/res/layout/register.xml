@@ -5,14 +5,17 @@
     android:background="#e8f4f8"
     android:gravity="center"
     android:orientation="vertical"
+    android:backgroundTint="@color/mint"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/T_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
         android:text="Sign up"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="30dp" />
 
     <EditText
@@ -21,47 +24,59 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/etUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="Username"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/etId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="Student id/Teacher id"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/etReenterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="Re-enter Password"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
         android:text="Role"
+        android:textColor="#000000"
         android:textSize="23dp" />
 
     <RadioGroup
@@ -69,30 +84,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <RadioButton
             android:id="@+id/btn_student"
             android:layout_width="99dp"
             android:layout_height="wrap_content"
-            android:text="Student" />
+            android:fontFamily="@font/kanit_semibold"
+            android:text="Student"
+            android:textColor="#000000" />
 
         <RadioButton
             android:id="@+id/btn_teacher"
             android:layout_width="98dp"
             android:layout_height="wrap_content"
-            android:text="Teacher" />
+            android:fontFamily="@font/kanit_semibold"
+            android:text="Teacher"
+            android:textColor="#000000" />
 
 
     </RadioGroup>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#44a6c6"
         android:layout_marginTop="10dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/kanit_semibold"
         android:onClick="save"
         android:text="Register"
-        android:textColor="@android:color/white" />
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/tvStatus"

@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
+import th.ac.kmutnb.namechecker.Nav_Menu;
 import th.ac.kmutnb.namechecker.R;
 
 public class Teacher_class_info extends AppCompatActivity {
@@ -73,10 +74,9 @@ public class Teacher_class_info extends AppCompatActivity {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.i(TAG,response);
                         if (response.equals("success")) {
                             Log.i(TAG, "success");
-                            Intent intent = new Intent(Teacher_class_info.this,Teacher_main.class);
+                            Intent intent = new Intent(Teacher_class_info.this, Nav_Menu.class);
                             startActivity(intent);
                         }else if(response.equals("failure")) {
                             Log.i(TAG, "failure");

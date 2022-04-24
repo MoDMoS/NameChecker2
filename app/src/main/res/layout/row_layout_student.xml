@@ -11,7 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/kanit_semibold"
         android:text="รหัสวิชา :"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -21,7 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/namesubject" />
 
@@ -31,7 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/kanit_semibold"
         android:text="ชื่อวิชา :"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +50,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +63,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/kanit_semibold"
         android:text="ตอนเรียน :"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -59,9 +74,12 @@
         android:id="@+id/sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/id" />
 
@@ -69,25 +87,34 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/sec" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_semibold"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/teacher"
-        tools:layout_editor_absoluteX="171dp" />
+        tools:layout_editor_absoluteX="188dp" />
 
     <TextView
         android:id="@+id/teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/kanit_semibold"
         android:hint="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/time" />
 
@@ -97,7 +124,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/kanit_semibold"
         android:text="เวลาเรียน :"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -107,7 +137,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/kanit_semibold"
         android:text="ผู้สอน :"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 

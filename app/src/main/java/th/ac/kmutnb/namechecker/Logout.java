@@ -1,4 +1,4 @@
-package th.ac.kmutnb.namechecker.ui.Teacher;
+package th.ac.kmutnb.namechecker;
 
 import android.content.Context;
 import android.content.DialogInterface;

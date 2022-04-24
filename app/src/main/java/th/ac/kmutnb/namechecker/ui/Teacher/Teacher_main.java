@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -49,7 +51,7 @@ public class Teacher_main extends Fragment {
         Log.i(TAG,"display");
         Log.i(TAG, String.valueOf(datas));
         adapter = new MyAdapter_Teacher(getActivity(),datas);
-        ListView lv = this.getActivity().findViewById(R.id.listview_S);
+        ListView lv = this.getActivity().findViewById(R.id.listview_T);
         lv.setOnItemClickListener(this::onItemClick);
         lv.setAdapter(adapter);
     }
@@ -74,8 +76,6 @@ public class Teacher_main extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         return inflater.inflate(R.layout.fragment_teacher_main, container, false);
     }
 
