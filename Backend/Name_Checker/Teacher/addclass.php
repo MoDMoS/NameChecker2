@@ -25,7 +25,7 @@
             if($rowSec){
                 echo "failureSec";
             }else{
-                $sql3 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass', ' ')";
+                $sql3 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass', ' ', ' ')";
                 if(!$conn->query($sql3)){
                     echo "failure";
                 }else{
@@ -50,7 +50,7 @@
                 if($result){
                     echo "failureSec";  
                 }else{
-                    $sql6 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass', ' ')";
+                    $sql6 = "INSERT INTO section VALUES('$subject', '$sec', '$time', '$name', '$pass', ' ', ' ')";
                     mysqli_query($conn,$sql6);
                     echo "success";
                 }

@@ -6,7 +6,7 @@
 
     $pdo = new PDO("mysql:host=localhost;dbname=namechecker;charset=utf8", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $pdo->prepare("SELECT Name, Id FROM user WHERE Username = '$username'");
+    $stmt = $pdo->prepare("SELECT Name, Id FROM user WHERE Username = '$username' OR Id='$username'");
     $stmt->execute();
 
     $resultArray = array();
