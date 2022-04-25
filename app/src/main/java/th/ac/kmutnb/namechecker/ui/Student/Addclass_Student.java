@@ -1,10 +1,12 @@
 package th.ac.kmutnb.namechecker.ui.Student;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -26,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
+import th.ac.kmutnb.namechecker.Nav_Menu;
 import th.ac.kmutnb.namechecker.Nav_Menu2;
 import th.ac.kmutnb.namechecker.R;
 
@@ -64,11 +67,33 @@ public class Addclass_Student extends Fragment {
                             if(response.equals("success")){
                                 Log.i(TAG,"success");
                                 Log.i(TAG,response);
-                                Intent intent = new Intent(getActivity(), Nav_Menu2.class);
-                                startActivity(intent);
-                                getActivity().finish();
-                            } else if(response.equals("test")){
+                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                                alert.setTitle("เสร็จสิ้น");
+                                alert.setMessage("เพิ่นห้องเรียนเรียบร้อย");
+                                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        etCheckIn.setText("");
+                                        Intent intent = new Intent(getActivity(), Nav_Menu2.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                                alert.create();
+                                alert.show();
+                            } else if(response.equals("failure")){
                                 Log.i(TAG,"failure");
+                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                                alert.setTitle("ผิดพลาด");
+                                alert.setMessage("รหัสเข้าห้องเรียนไม่ถูกต้อง");
+                                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent intent = new Intent(getActivity(), Nav_Menu.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                                alert.create();
+                                alert.show();
     //                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
                             }
                         }

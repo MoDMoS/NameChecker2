@@ -6,13 +6,15 @@ public class Data_Student {
     private String Sec;
     private String Time;
     private String Teacher;
+    private String Last;
 
-    public Data_Student(String subject, String id, String sec, String time, String teacher) {
+    public Data_Student(String subject, String id, String sec, String time, String teacher, String last) {
         Subject = subject;
         Subject_Id = id;
         Sec = sec;
         Time = time;
         Teacher = teacher;
+        Last = last;
     }
 
     public String getSubject() {
@@ -33,5 +35,9 @@ public class Data_Student {
 
     public String getTeacher() {
         return Teacher;
+    }
+
+    public String getLast() {
+        return Last;
     }
 }

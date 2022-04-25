@@ -92,7 +92,6 @@ public class Addclass_Teacher extends Fragment {
                             Log.i(TAG, response);
                             if(response.equals("success")){
                                 Log.i(TAG,"success");
-                                Log.i(TAG,response);
                                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                                 alert.setTitle("เสร็จสิ้น");
                                 alert.setMessage("เพิ่มตอนเรียนเรียบร้อย");
@@ -105,9 +104,6 @@ public class Addclass_Teacher extends Fragment {
                                 });
                                 alert.create();
                                 alert.show();
-                                Intent intent = new Intent(getActivity(), Nav_Menu.class);
-                                startActivity(intent);
-                                getActivity().finish();
                             } else if(response.equals("failureSec")){
                                 Log.i(TAG,"failureSec");
                                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
@@ -132,9 +128,6 @@ public class Addclass_Teacher extends Fragment {
                                 });
                                 alert.create();
                                 alert.show();
-                            }else if(response.equals("failure2")){
-                                Log.i(TAG,"failure2");
-//                        Toast.makeText(Addclass_Teacher.this,"Section have",Toast.LENGTH_SHORT).show();
                             }
                         }
                     }, new Response.ErrorListener(){

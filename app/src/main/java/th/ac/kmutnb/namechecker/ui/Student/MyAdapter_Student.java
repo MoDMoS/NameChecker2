@@ -29,6 +29,7 @@ public class MyAdapter_Student extends BaseAdapter {
         TextView id;
         TextView time;
         TextView teacher;
+        TextView date;
     }
 
     @Override
@@ -56,6 +57,7 @@ public class MyAdapter_Student extends BaseAdapter {
             holder.sec = (TextView)view.findViewById(R.id.sec);
             holder.time = (TextView)view.findViewById(R.id.time);
             holder.teacher = (TextView)view.findViewById(R.id.teacher);
+            holder.date = (TextView)view.findViewById(R.id.date);
             view.setTag(holder);
         } else {
             holder = (ViewHolder)view.getTag();
@@ -65,6 +67,7 @@ public class MyAdapter_Student extends BaseAdapter {
         holder.sec.setText(mDatas.get(position).getSec());
         holder.time.setText(mDatas.get(position).getTime());
         holder.teacher.setText(mDatas.get(position).getTeacher());
+        holder.date.setText(mDatas.get(position).getLast());
         return view;
     }
 }

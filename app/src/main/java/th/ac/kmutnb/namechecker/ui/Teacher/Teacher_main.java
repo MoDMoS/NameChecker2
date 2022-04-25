@@ -47,33 +47,6 @@ public class Teacher_main extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    public void displayListview(){
-        Log.i(TAG,"display");
-        Log.i(TAG, String.valueOf(datas));
-        adapter = new MyAdapter_Teacher(getActivity(),datas);
-        ListView lv = this.getActivity().findViewById(R.id.listview_T);
-        lv.setOnItemClickListener(this::onItemClick);
-        lv.setAdapter(adapter);
-    }
-
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        SharedPreferences.Editor editor =  pref.edit();
-        editor.putString("subject",datas.get(i).getSubject());
-        editor.putString("sec",datas.get(i).getSec());
-        editor.putString("time",datas.get(i).getTime());
-        editor.putString("check_in",datas.get(i).getCheck_in());
-        editor.commit();
-
-//        Teacher_class_info teacher_class_info = new Teacher_class_info();
-//        getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .addToBackStack(null)
-//                .add(R.id.nav_host_fragment_content_menu,teacher_class_info)
-//                .commit();
-        Intent intent = new Intent(getActivity(), Teacher_class_info.class);
-        startActivity(intent);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_teacher_main, container, false);
@@ -132,5 +105,32 @@ public class Teacher_main extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(jsRequest);
+    }
+
+    public void displayListview(){
+        Log.i(TAG,"display");
+        Log.i(TAG, String.valueOf(datas));
+        adapter = new MyAdapter_Teacher(getActivity(),datas);
+        ListView lv = this.getActivity().findViewById(R.id.listview_T);
+        lv.setOnItemClickListener(this::onItemClick);
+        lv.setAdapter(adapter);
+    }
+
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        SharedPreferences.Editor editor =  pref.edit();
+        editor.putString("subject",datas.get(i).getSubject());
+        editor.putString("sec",datas.get(i).getSec());
+        editor.putString("time",datas.get(i).getTime());
+        editor.putString("check_in",datas.get(i).getCheck_in());
+        editor.commit();
+
+//        Teacher_class_info teacher_class_info = new Teacher_class_info();
+//        getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .addToBackStack(null)
+//                .add(R.id.nav_host_fragment_content_menu,teacher_class_info)
+//                .commit();
+        Intent intent = new Intent(getActivity(), Teacher_class_info.class);
+        startActivity(intent);
     }
 }

@@ -54,7 +54,7 @@ public class Teacher_student_list extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        if(response.equals(null)){
+                        if(!response.equals(null)){
                             Log.i(TAG, String.valueOf(response));
                             Gson gson = new Gson();
 
@@ -109,7 +109,7 @@ public class Teacher_student_list extends AppCompatActivity {
         Log.i(TAG,"display");
         Log.i(TAG, String.valueOf(datas));
         adapter = new MyAdapter_T_Student_list(this,datas);
-        ListView lv = findViewById(R.id.listview_T);
+        ListView lv = findViewById(R.id.listview_SL);
 //        lv.setOnItemClickListener(this);
         lv.setAdapter(adapter);
     }

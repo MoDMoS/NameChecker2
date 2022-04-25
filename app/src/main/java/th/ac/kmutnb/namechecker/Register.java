@@ -1,5 +1,6 @@
 package th.ac.kmutnb.namechecker;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -23,6 +25,9 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import th.ac.kmutnb.namechecker.ui.Student.Checkname;
+import th.ac.kmutnb.namechecker.ui.Student.Student_class_info;
 
 public class Register extends AppCompatActivity {
     private EditText etName, etUser, etId, etPassword, etReenterPassword;
@@ -81,6 +86,18 @@ public class Register extends AppCompatActivity {
                     if (response.equals("success")) {
                         tvStatus.setText("Successfully registered.");
                         btnRegister.setClickable(false);
+                        AlertDialog.Builder alert = new AlertDialog.Builder(Register.this);
+                        alert.setTitle("เสร็จสิ้น");
+                        alert.setMessage("สมัครสมาชิคเรียบร้อย");
+                        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Register.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                        alert.create();
+                        alert.show();
                         Intent intent = new Intent(Register.this, MainActivity.class);
                         startActivity(intent);
                         finish();

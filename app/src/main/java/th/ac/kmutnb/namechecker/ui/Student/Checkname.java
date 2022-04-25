@@ -32,7 +32,7 @@ public class Checkname extends AppCompatActivity {
 
     static  String TAG = "myapp";
     EditText etPass;
-    String username, subject, Pass = "";
+    String username, subject, currentDateTime, Pass = "";
     SharedPreferences pref;
     String URL = "http://192.168.1.41/Name_Checker/Student/checkname.php";
 
@@ -46,8 +46,11 @@ public class Checkname extends AppCompatActivity {
         subject = pref.getString("subject", "not found");
 
         etPass = findViewById(R.id.etCheckIn);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM");
+        currentDateTime = sdf.format(new Date());
     }
-    public void back(View view){
+    public void Check_name(View view){
         Pass = etPass.getText().toString().trim();
         if(!Pass.equals("")){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -63,13 +66,6 @@ public class Checkname extends AppCompatActivity {
                         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM");
-                                String currentDateTime = sdf.format(new Date());
-
-                                SharedPreferences.Editor editor =  pref.edit();
-                                editor.putString("checkname", subject);
-                                editor.putString("datetime", currentDateTime);
-                                editor.commit();
                                 Intent intent = new Intent(Checkname.this, Student_class_info.class);
                                 startActivity(intent);
                             }
@@ -105,6 +101,7 @@ public class Checkname extends AppCompatActivity {
                     Map<String, String> data = new HashMap<>();
                     data.put("username", username);
                     data.put("pass", Pass);
+                    data.put("date", currentDateTime);
                     Log.i(TAG, String.valueOf(data));
                     return data;
                 }

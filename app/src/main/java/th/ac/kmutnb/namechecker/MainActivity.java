@@ -1,6 +1,7 @@
 package th.ac.kmutnb.namechecker;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -85,7 +87,17 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }  else if (response.equals("failure")) {
-                        Toast.makeText(MainActivity.this, "Invalid Login Id/Password", Toast.LENGTH_SHORT).show();
+                        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                        alert.setTitle("ผิดพลาด");
+                        alert.setMessage("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+                        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                        alert.create();
+                        alert.show();
                     }
                 }
             }, new Response.ErrorListener() {

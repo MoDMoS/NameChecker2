@@ -21,6 +21,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java. util. Random;
@@ -33,7 +35,7 @@ public class Generate_Pass extends AppCompatActivity {
     private String randomstring = "";
     private String URL = "http://192.168.1.41/Name_Checker/Teacher/generate_pass.php";
     SharedPreferences pref;
-    String username, subject, sec, check_in;
+    String username, subject, sec, check_in, currentDateTime;
 
 
     @Override
@@ -49,6 +51,9 @@ public class Generate_Pass extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.classpass);
         textView.setText(check_in);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM");
+        currentDateTime = sdf.format(new Date());
     }
 
     public void generate(View view){
@@ -104,6 +109,7 @@ public class Generate_Pass extends AppCompatActivity {
                     data.put("pass", check_in);
                     data.put("subject", subject);
                     data.put("sec", sec);
+                    data.put("date", currentDateTime);
                     data.put("check", "generate");
                     Log.i(TAG, String.valueOf(data));
                     return data;
@@ -162,6 +168,7 @@ public class Generate_Pass extends AppCompatActivity {
                         data.put("pass", randomstring);
                         data.put("subject", subject);
                         data.put("sec", sec);
+                        data.put("date", " ");
                         data.put("check", "close");
                         Log.i(TAG, String.valueOf(data));
                         return data;

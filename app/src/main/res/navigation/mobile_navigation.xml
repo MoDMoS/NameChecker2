@@ -23,9 +23,4 @@
         android:label="logout"
         tools:layout="@layout/fragment_logout" />
 
-    <fragment
-        android:id="@+id/nav_student_main"
-        android:name="th.ac.kmutnb.namechecker.ui.Student.Student_Main"
-        android:label="Main"
-        tools:layout="@layout/fragment_student_main" />
 </navigation>

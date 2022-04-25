@@ -7,13 +7,7 @@ public class Data_Teacher {
     private String Time;
     private String Pass;
     private String Check_In;
-
-//    public Data_Teacher(String mText1, String mText2, String mText3, String mText4) {
-//        this.mText1 = mText1;
-//        this.mText2 = mText2;
-//        this.mText3 = mText3;
-//        this.mText4 = mText4;
-//    }
+    private String Date;
 
     public String getSubject() {
         return Subject;
@@ -33,5 +27,9 @@ public class Data_Teacher {
 
     public String getCheck_in() {
         return Check_In;
+    }
+
+    public String getDate() {
+        return Date;
     }
 }

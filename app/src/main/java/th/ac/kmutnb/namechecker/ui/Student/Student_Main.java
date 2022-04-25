@@ -121,6 +121,8 @@ public class Student_Main extends Fragment {
         editor.putString("sec",datas.get(i).getSec());
         editor.putString("time",datas.get(i).getTime());
         editor.putString("teacher",datas.get(i).getTeacher());
+        editor.putString("last_date",datas.get(i).getLast());
+
         editor.commit();
 
         Intent itn = new Intent(getActivity(), Student_class_info.class);
