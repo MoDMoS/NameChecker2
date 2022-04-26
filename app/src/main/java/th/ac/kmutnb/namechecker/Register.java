@@ -76,7 +76,16 @@ public class Register extends AppCompatActivity {
         reenterPassword = etReenterPassword.getText().toString().trim();
 
         if(!password.equals(reenterPassword)){
-            Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder alert = new AlertDialog.Builder(Register.this);
+            alert.setTitle("ผิดพลาด");
+            alert.setMessage("การยืนยันรหัสผ่านไม่ถูกต้อง");
+            alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            alert.create();
+            alert.show();
         }
         else if(!name.equals("") && !id.equals("") && !password.equals("") && !username.equals("")){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -102,6 +111,19 @@ public class Register extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else if (response.equals("failure")) {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(Register.this);
+                        alert.setTitle("ผิดพลาด");
+                        alert.setMessage("Id หรือ ชื่อผู้ใช้ถูกใช้ไปแล้ว");
+                        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        });
+                        alert.create();
+                        alert.show();
+                        Intent intent = new Intent(Register.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                         tvStatus.setText("ID or username is already in use.");
                     }
                 }
