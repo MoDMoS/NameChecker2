@@ -7,6 +7,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $name = validate($_POST['name']);
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
+    $password = md5($password);
     $role = validate($_POST['role']);
     
     $sql = "INSERT INTO user VALUES('$id', '$name', '$username', '$password', '$role')";

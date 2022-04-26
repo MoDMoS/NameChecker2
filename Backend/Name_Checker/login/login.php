@@ -6,15 +6,16 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
+    $password = md5($password);
     
     $sql = "SELECT Role FROM user WHERE (ID = '$username' OR Username='$username') AND Password='$password'";
     
     $result = mysqli_query($conn,$sql);
 
     $row = mysqli_fetch_array($result);
-    $data = $row[0];
     
-    if($data){
+    if($row){
+        $data = $row[0];
         if($row[0] == "Student"){
             echo "Student";
         }
